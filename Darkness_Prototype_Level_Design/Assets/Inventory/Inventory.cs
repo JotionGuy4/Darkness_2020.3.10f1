@@ -20,11 +20,13 @@ public class Inventory : MonoBehaviour
     public Image[] slot;
     public Sprite[] slotSprite;
 
+    public bool hasknife;
+
+
     // Start is called before the first frame update
     void Start()
     {
-       
-         
+
         yourInventory = new Item[7];
         
         for (int i = 0; i < yourInventory.Length; i++)
@@ -74,6 +76,18 @@ public class Inventory : MonoBehaviour
                 }
             }
             pickingUp.pick = false; 
+        }
+
+        for (int i = 0; i < yourInventory.Length; i++)
+        {
+            if (yourInventory[i].name == "knife")
+            {
+                hasknife = true;
+            }
+            else
+            {
+                hasknife = false;
+            }
         }
     }
 
@@ -135,3 +149,5 @@ public class Inventory : MonoBehaviour
         }
     }
 }
+
+
