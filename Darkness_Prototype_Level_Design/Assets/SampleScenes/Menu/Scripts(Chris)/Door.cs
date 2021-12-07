@@ -19,7 +19,21 @@ public class Door : MonoBehaviour
     private bool doOnce;
 
     private const string interactableTag = "InteractiveObject";
-        
+
+    private Inventory checkInv;
+    public GameObject noKnifeText;
+    public GameObject carriesKnifeText;
+
+
+
+    private void Awake()
+    {
+        checkInv = GetComponent<Inventory>();
+        noKnifeText.SetActive(false);
+        carriesKnifeText.SetActive(false);
+    }
+
+
     private void Update()
     {
         RaycastHit hit;
@@ -31,7 +45,18 @@ public class Door : MonoBehaviour
         {
             if (hit.collider.CompareTag(interactableTag))
             {
-                if(!doOnce)
+                if (checkInv.hasknife == true)
+                {
+                    carriesKnifeText.SetActive(true);
+                    DoorOpen = true;
+                }
+                else
+                {
+                    noKnifeText.SetActive(true);
+
+                }
+
+                    if (!doOnce)
                 {
                     raycastedObj = hit.collider.gameObject.GetComponent<MyDoorController>();
                     CrosshairChange(true);

@@ -5,10 +5,6 @@ using UnityEngine;
 public class MyDoorController : MonoBehaviour
 {
     private Animator DoorAnim;
-    private Inventory checkInv;
-    public GameObject noKnifeText;
-    public GameObject carriesKnifeText;
-
     private bool DoorOpen = false;
 
     private void Awake()
