@@ -5,20 +5,48 @@ using UnityEngine;
 public class MyDoorController : MonoBehaviour
 {
     private Animator DoorAnim;
+    private Inventory checkInv;
+    public GameObject noKnifeText;
+    public GameObject carriesKnifeText;
 
     private bool DoorOpen = false;
 
     private void Awake()
     {
         DoorAnim = gameObject.GetComponent<Animator>();
+        checkInv = GetComponent<Inventory>();
+        noKnifeText.SetActive(false);
+        carriesKnifeText.SetActive(false);
     }
 
-    public void PlayAnimation()
+    void OnTriggerEnter(Collider col)
     {
-        if (!DoorOpen)
+        if (col.tag == "InteractiveObject")
+        {
+            if (checkInv.hasknife == true)
+            {
+                carriesKnifeText.SetActive(true);
+                DoorOpen = true;
+                PlayAnimation();
+            }
+            else
+            {
+                noKnifeText.SetActive(true);
+                DoorOpen = false;
+            }
+        }
+        else
+        {
+            noKnifeText.SetActive(false);
+            carriesKnifeText.SetActive(false);
+        }
+    }
+
+        public void PlayAnimation()
+    {
+        if (DoorOpen == true)
         {
             DoorAnim.Play("DoorOpen", 0, 0.0f);
-            DoorOpen = true;
         }
         else
         {

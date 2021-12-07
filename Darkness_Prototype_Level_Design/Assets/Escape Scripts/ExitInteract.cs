@@ -7,14 +7,15 @@ public class ExitInteract : MonoBehaviour
     public GameObject noKnifeText;
     public GameObject carriesKnifeText;
     public GameObject exit;
-    public bool canExit = false;
-    public bool cannotExit = false;
+    public bool canExit;
     private Inventory checkInventory;
 
     // Start is called before the first frame update
     void Start()
     {
         checkInventory = GetComponent<Inventory>();
+        canExit = false;
+
     }
 
     // Update is called once per frame
@@ -26,38 +27,32 @@ public class ExitInteract : MonoBehaviour
             carriesKnifeText.SetActive(true);
 
         }
-        else if(cannotExit == true)
+        else
         {
             noKnifeText.SetActive(true);
-        }
-        else
-        { 
-            noKnifeText.SetActive(false);
-            carriesKnifeText.SetActive(false);
         }
     }
     void OnTriggerEnter(Collider col)
     {
-        if (checkInventory.hasknife == true) {
-            if (col.tag == "exit")
+        if (checkInventory.hasknife == true)
+        {
+            if (col.tag == "InteractiveObject")
             {
                 canExit = true;
-                cannotExit = false;
             }
         }
         else
         {
             canExit = false;
-            cannotExit = true;
         }
     }
 
     void OnTriggerExit(Collider col)
     {
-        if (col.tag == "exit")
+        if (col.tag == "InteractiveObject")
         {
             canExit = false;
-            cannotExit = false;
+
         }
     }
-}
+}  
