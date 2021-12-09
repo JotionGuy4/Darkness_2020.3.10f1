@@ -6,6 +6,7 @@ TagManager:
   tags:
   - item
   - InteractiveObject
+  - table
   layers:
   - Default
   - TransparentFX

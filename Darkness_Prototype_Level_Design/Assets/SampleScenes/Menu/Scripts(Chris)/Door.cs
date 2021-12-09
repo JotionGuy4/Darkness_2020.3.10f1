@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Door : MonoBehaviour
 {
@@ -19,7 +19,32 @@ public class Door : MonoBehaviour
     private bool doOnce;
 
     private const string interactableTag = "InteractiveObject";
-        
+
+    private Inventory checkInv;
+    public GameObject noKnifeText;
+    public GameObject carriesKnifeText;
+
+    private void Awake()
+    {
+        checkInv = GetComponent<Inventory>();
+        noKnifeText.SetActive(false);
+        carriesKnifeText.SetActive(false);
+    }
+
+    private void NewUpdate()
+    {
+        // check to see if player has hit mouse button
+
+        // if player has hit mouse button
+        //  check to see if you are near the door
+
+        //      if you are near the door
+        //          ask the door what object you should check the inventory for -> hard code the knife
+
+        //          ask the inventory if it contains the object the door wants
+        //              if inventory has the object that the door wants -- open the door
+    }
+
     private void Update()
     {
         RaycastHit hit;
@@ -31,7 +56,10 @@ public class Door : MonoBehaviour
         {
             if (hit.collider.CompareTag(interactableTag))
             {
-                if(!doOnce)
+                
+                
+
+                    if (!doOnce)
                 {
                     raycastedObj = hit.collider.gameObject.GetComponent<MyDoorController>();
                     CrosshairChange(true);
@@ -40,11 +68,18 @@ public class Door : MonoBehaviour
                 isCrosshairActive = true;
                 doOnce = true;
 
-                if(Input.GetKeyDown(openDoorKey))
-                {
-                    raycastedObj.PlayAnimation();
+                if (checkInv.hasknife == true) {
+                    carriesKnifeText.SetActive(true);
+                    if (Input.GetKeyDown(openDoorKey))
+                    {
+                        raycastedObj.PlayAnimation();
+                    }
                 }
-               
+                else
+                {
+                    noKnifeText.SetActive(true);
+
+                }
             }
 
         }
@@ -62,14 +97,13 @@ public class Door : MonoBehaviour
     {
         if (on && !doOnce)
         {
-            crosshair.color = Color.red;
+            crosshair.tintColor = Color.red;
         }
         else
         {
-            crosshair.color = Color.white;
+            crosshair.tintColor = Color.white;
             isCrosshairActive = false;
 
         }
     }
-
 }
