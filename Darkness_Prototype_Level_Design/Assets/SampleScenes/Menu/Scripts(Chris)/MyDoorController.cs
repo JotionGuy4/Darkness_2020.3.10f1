@@ -5,6 +5,7 @@ using UnityEngine;
 public class MyDoorController : MonoBehaviour
 {
     private Animator DoorAnim;
+
     private bool DoorOpen = false;
 
     private void Awake()
@@ -12,19 +13,19 @@ public class MyDoorController : MonoBehaviour
         DoorAnim = gameObject.GetComponent<Animator>();
     }
 
-        public void PlayAnimation()
+    public void PlayAnimation()
+    {
+        if (!DoorOpen)
         {
-            if (!DoorOpen)
-            {
-                DoorAnim.Play("DoorOpen", 0, 0.0f);
-                DoorOpen = true;
-            }
-            else
-            {
-                DoorAnim.Play("DoorClose", 0, 0.0f);
-                DoorOpen = false;
-
-            }
+            DoorAnim.Play("DoorOpen", 0, 0.0f);
+            DoorOpen = true;
         }
+        else
+        {
+            DoorAnim.Play("DoorClose", 0, 0.0f);
+            DoorOpen = false;
+
+        }
+    }
 
 }

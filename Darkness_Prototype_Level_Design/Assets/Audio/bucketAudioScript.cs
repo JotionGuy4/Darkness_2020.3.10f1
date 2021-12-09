@@ -12,11 +12,16 @@ public class bucketAudioScript : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Bucket Audio Script detected collision");
             soundSource.Play();
         }
     }

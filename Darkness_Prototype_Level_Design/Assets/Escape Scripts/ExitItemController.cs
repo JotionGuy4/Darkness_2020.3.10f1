@@ -24,7 +24,7 @@ using UnityEngine;
             if(exitInventory.hasknife == true)
                 {
             gameObject.SetActive(false);
-            }
         }
+    }
     }
 
