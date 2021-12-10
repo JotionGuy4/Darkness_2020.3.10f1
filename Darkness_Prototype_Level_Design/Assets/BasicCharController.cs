@@ -10,8 +10,8 @@ public class BasicCharController : MonoBehaviour
     public float mouseSpeed;
     public float moveForceMagnitude;
 
-    private float bearing;
-    private float pitch;
+    public float bearing;
+    public float pitch;
 
     private Vector3 moveForceDir;
 
@@ -34,7 +34,8 @@ public class BasicCharController : MonoBehaviour
             pitch = Mathf.Clamp(pitch, -85, 85);
         }
 
-        head.transform.rotation = Quaternion.Euler(pitch, bearing, 0);
+        head.transform.localRotation = Quaternion.Euler(pitch, 0, 0);
+        rb.rotation = Quaternion.Euler(0, bearing, 0);
 
         moveForceDir = Vector3.zero;
         if (Input.GetKey(KeyCode.W)) moveForceDir += transform.forward;
@@ -46,6 +47,7 @@ public class BasicCharController : MonoBehaviour
 
     public void FixedUpdate()
     {
+        rb.SetMaxAngularVelocity(0);
         rb.AddForce(moveForceDir * moveForceMagnitude, ForceMode.Force);
         rb.AddForce(Vector3.down * 10, ForceMode.Force);
     }
