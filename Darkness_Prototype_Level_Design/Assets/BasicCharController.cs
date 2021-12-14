@@ -52,7 +52,7 @@ public class BasicCharController : MonoBehaviour
     {
         rb.SetMaxAngularVelocity(0);
         rb.AddForce(moveForceDir * moveForceMagnitude, ForceMode.Force);
-        rb.AddForce(Vector3.down * 10, ForceMode.Force);
+        rb.AddForce(Vector3.down * 5, ForceMode.Force);
     }
 
     void OnApplicationFocus(bool ApplicationIsBack)
