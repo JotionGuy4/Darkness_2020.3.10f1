@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4343291447310301246}
   - component: {fileID: 4343291447310301241}
   - component: {fileID: 4343291447310301240}
+  - component: {fileID: 6659645288503127799}
   m_Layer: 0
   m_Name: BasicCharacterController
   m_TagString: Untagged
@@ -80,6 +81,16 @@ MonoBehaviour:
   rb: {fileID: 0}
   mouseSpeed: 180
   moveForceMagnitude: 2000
+  bearing: 0
+  pitch: 0
+--- !u!81 &6659645288503127799
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4343291447310301243}
+  m_Enabled: 1
 --- !u!1 &4343291447791099132
 GameObject:
   m_ObjectHideFlags: 0

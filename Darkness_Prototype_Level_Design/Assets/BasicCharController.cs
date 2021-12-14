@@ -19,6 +19,9 @@ public class BasicCharController : MonoBehaviour
     {
         head = GetComponentInChildren<Camera>();
         rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     public void Update()
@@ -50,5 +53,14 @@ public class BasicCharController : MonoBehaviour
         rb.SetMaxAngularVelocity(0);
         rb.AddForce(moveForceDir * moveForceMagnitude, ForceMode.Force);
         rb.AddForce(Vector3.down * 10, ForceMode.Force);
+    }
+
+    void OnApplicationFocus(bool ApplicationIsBack)
+    {
+        if (ApplicationIsBack == true)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }
