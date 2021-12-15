@@ -38,18 +38,19 @@ public class ExitInteract : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        if (checkInventory.hasknife == true)
+        if (col.tag == "InteractiveObject")
         {
-            if (col.tag == "InteractiveObject")
+            if (checkInventory.hasknife == true)
             {
+
                 canExit = true;
                 cannotExit = false;
             }
-        }
-        else
-        {
-            canExit = false;
-            cannotExit = true;
+            else
+            {
+                canExit = false;
+                cannotExit = true;
+            }
         }
     }
 
