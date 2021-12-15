@@ -33,7 +33,7 @@ public class SelectedFlash : MonoBehaviour
             startedFlashing = true;
             StartCoroutine(FlashObject());
         }
-        
+
     }
 
     void OnMouseExit()
@@ -63,7 +63,7 @@ public class SelectedFlash : MonoBehaviour
             }
             if (flashingIn == false)
             {
-                if (blueCol >=250)
+                if (blueCol >= 250)
                 {
                     flashingIn = true;
                 }

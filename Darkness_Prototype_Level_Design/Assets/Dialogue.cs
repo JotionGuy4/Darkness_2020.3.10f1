@@ -27,6 +27,6 @@ public class Dialogue : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         UIObject.SetActive(false);
-            Destroy(trigger);
+        Destroy(trigger);
     }
 }

@@ -26,7 +26,7 @@ public class BasicCharController : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetAxis("Mouse X") != 0)
+        if (Input.GetAxis("Mouse X") != 0)
         {
             bearing += mouseSpeed * Time.deltaTime * Input.GetAxis("Mouse X");
             bearing = (bearing + 360) % 360;

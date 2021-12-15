@@ -26,20 +26,21 @@ public class ExitInteract : MonoBehaviour
             carriesKnifeText.SetActive(true);
 
         }
-        else if(cannotExit == true)
+        else if (cannotExit == true)
         {
             noKnifeText.SetActive(true);
         }
         else
-        { 
+        {
             noKnifeText.SetActive(false);
             carriesKnifeText.SetActive(false);
         }
     }
     void OnTriggerEnter(Collider col)
     {
-        if (checkInventory.hasknife == true) {
-            if (col.tag == "exit")
+        if (checkInventory.hasknife == true)
+        {
+            if (col.tag == "InteractiveObject")
             {
                 canExit = true;
                 cannotExit = false;
@@ -54,7 +55,7 @@ public class ExitInteract : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if (col.tag == "exit")
+        if (col.tag == "InteractiveObject")
         {
             canExit = false;
             cannotExit = false;

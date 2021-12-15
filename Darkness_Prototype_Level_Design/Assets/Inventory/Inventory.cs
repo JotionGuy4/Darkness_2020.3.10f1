@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
     public int n;
 
     public int a;
-    public int b; 
+    public int b;
 
     public Image[] slot;
     public Sprite[] slotSprite;
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
     {
 
         yourInventory = new Item[7];
-        
+
         for (int i = 0; i < yourInventory.Length; i++)
         {
             yourInventory[i] = new Item();
@@ -48,7 +48,7 @@ public class Inventory : MonoBehaviour
         {
             slotSprite[i] = yourInventory[i].itemSprite;
         }
-        for (int i = 0; i<slotsNumber; i++)
+        for (int i = 0; i < slotsNumber; i++)
         {
             slot[i].sprite = slotSprite[i];
         }
@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour
 
 
 
-        if(pickingUp.itemToPickUp != null)
+        if (pickingUp.itemToPickUp != null)
         {
             x = pickingUp.itemToPickUp;
             n = x.GetComponent<ThisItem>().thisId;
@@ -66,16 +66,17 @@ public class Inventory : MonoBehaviour
             x = null;
         }
 
-        if(pickingUp.pick == true){
-            for (int i=0; i < slotsNumber; i++)
+        if (pickingUp.pick == true)
+        {
+            for (int i = 0; i < slotsNumber; i++)
             {
-                if(yourInventory[i].id == 0 && pickingUp.pick == true)
+                if (yourInventory[i].id == 0 && pickingUp.pick == true)
                 {
                     yourInventory[i] = Database.itemList[n];
                     pickingUp.pick = false;
                 }
             }
-            pickingUp.pick = false; 
+            pickingUp.pick = false;
         }
 
         for (int i = 0; i < yourInventory.Length; i++)
@@ -110,16 +111,16 @@ public class Inventory : MonoBehaviour
             yourInventory[indexOfEmpty] = item;
         }
 
-        
+
     }
-     public void DraggingItem(Image slotX)
+    public void DraggingItem(Image slotX)
     {
         print("Dragging:" + slotX.name);
-        for(int i= 0; i<slotsNumber; i++)
+        for (int i = 0; i < slotsNumber; i++)
         {
-            if(slot[i] == slotX)
+            if (slot[i] == slotX)
             {
-                a = i; 
+                a = i;
             }
         }
     }
@@ -142,9 +143,9 @@ public class Inventory : MonoBehaviour
         print("enter");
         for (int i = 0; i < slotsNumber; i++)
         {
-            if(slot[i] == slotX)
+            if (slot[i] == slotX)
             {
-                a = i; 
+                a = i;
             }
         }
     }

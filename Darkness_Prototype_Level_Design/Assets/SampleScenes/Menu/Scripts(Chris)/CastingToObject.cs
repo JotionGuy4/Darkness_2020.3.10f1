@@ -16,6 +16,6 @@ public class CastingToObject : MonoBehaviour
             selectedObject = theObject.transform.gameObject.name;
             internalObject = theObject.transform.gameObject.name;
         }
-        
+
     }
 }

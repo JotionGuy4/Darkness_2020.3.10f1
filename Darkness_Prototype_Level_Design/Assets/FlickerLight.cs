@@ -8,8 +8,8 @@ public class FlickerLight : MonoBehaviour
     public float timeDelay;
 
     void Update()
-    { 
-    
+    {
+
         if (isFlickering == false)
         {
             StartCoroutine(FlickeringLight());
@@ -27,5 +27,5 @@ public class FlickerLight : MonoBehaviour
         isFlickering = false;
 
     }
-    
+
 }

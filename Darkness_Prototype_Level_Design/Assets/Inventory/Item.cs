@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 [System.Serializable]
 
-public class Item 
+public class Item
 {
     public int id;
     public string name;
     public string description;
 
     public Sprite itemSprite;
-    
+
 
     public Item()
     {

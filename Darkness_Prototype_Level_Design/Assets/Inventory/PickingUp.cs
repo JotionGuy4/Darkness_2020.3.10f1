@@ -19,13 +19,13 @@ public class PickingUp : MonoBehaviour
         inventory = GetComponent<Inventory>();
         things = 0;
 
-        pick = false; 
+        pick = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(canPickUp == true)
+        if (canPickUp == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -33,7 +33,7 @@ public class PickingUp : MonoBehaviour
                 Destroy(Item);
                 Item = null;
                 pick = true;
-                canPickUp = false; 
+                canPickUp = false;
 
             }
         }
@@ -48,23 +48,23 @@ public class PickingUp : MonoBehaviour
         }
     }
 
-   void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider col)
     {
         if (col.tag == "item")
         {
             itemToPickUp = col.gameObject;
             Item = col.gameObject;
-            canPickUp = true; 
+            canPickUp = true;
         }
     }
 
     void OnTriggerExit(Collider col)
     {
-        if(col.tag == "item")
+        if (col.tag == "item")
         {
-            itemToPickUp = null; 
+            itemToPickUp = null;
             Item = null;
-            canPickUp = false; 
+            canPickUp = false;
         }
     }
 }
