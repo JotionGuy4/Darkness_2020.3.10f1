@@ -7,6 +7,8 @@ public class MyDoorController : MonoBehaviour
     private Animator DoorAnim;
 
     private bool DoorOpen = false;
+    public AudioSource source;
+    public AudioClip clip;
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class MyDoorController : MonoBehaviour
         {
             DoorAnim.Play("DoorOpen", 0, 0.0f);
             DoorOpen = true;
+            source.PlayOneShot(clip);
         }
         else
         {
