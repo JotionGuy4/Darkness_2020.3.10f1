@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class CastingToObject : MonoBehaviour
 {
-    public static string selectedObject;
-    public string internalObject;
+    public string selectedObject;
     public RaycastHit theObject;
+    public LayerMask ilm;
 
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out theObject))
+        if (Physics.Raycast(transform.position, transform.forward, out theObject, 30, ilm, QueryTriggerInteraction.Collide))
         {
             selectedObject = theObject.transform.gameObject.name;
-            internalObject = theObject.transform.gameObject.name;
         }
 
     }

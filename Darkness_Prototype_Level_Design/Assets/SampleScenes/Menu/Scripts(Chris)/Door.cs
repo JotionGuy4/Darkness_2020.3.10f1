@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
+    // Opens and closes door when clicked on
+
     [SerializeField] private int rayLength = 5;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;

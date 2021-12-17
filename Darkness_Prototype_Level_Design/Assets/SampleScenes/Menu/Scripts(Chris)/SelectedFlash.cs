@@ -12,21 +12,30 @@ public class SelectedFlash : MonoBehaviour
     public bool flashingIn = true;
     public bool startedFlashing = false;
 
-
+    public CastingToObject CTO;
 
     // Update is called once per frame
     void Update()
     {
         if (lookingAtObject == true)
         {
-            selectedObject.GetComponent<Renderer>().material.color = new Color32((byte)redCol, (byte)greenCol, (byte)blueCol, 255);
+            if (selectedObject != null)
+            {
+                if (selectedObject.GetComponent<MeshRenderer>() != null)
+                {
+                    selectedObject.GetComponent<MeshRenderer>().material.color = new Color32((byte)redCol, (byte)greenCol, (byte)blueCol, 255);
+                    Debug.Log("selectedObject is " + selectedObject.gameObject.name);
+                }
+                else Debug.Log("Get Component did not find renderer.");
+            }            
+            else Debug.Log("selected object is null");
         }
     }
 
     void OnMouseOver()
     {
         Debug.Log("MouseOver detected.");
-        selectedObject = GameObject.Find(CastingToObject.selectedObject);
+        selectedObject = GameObject.Find(CTO.selectedObject);
         lookingAtObject = true;
         if (startedFlashing == false)
         {
